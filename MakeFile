@@ -1,0 +1,30 @@
+include .env
+export $(shell sed 's/=.*//' .env)
+
+GOPATH=$(shell go env GOPATH)
+
+deps:
+	@ echo
+	@ echo "Starting downloading dependecies..."
+	@ echo
+	@ go get ./ ...
+
+test:
+	@ echo
+	@ echo "Starting running tests..."
+	@ echo
+	@ go get ./...
+
+run:
+	@ echo
+	@ echo "Starting the api..."
+	@ echo
+	@ go run ./cmd/api/main
+
+fmt:
+	@ echo
+	@ echo "Formating code..."
+	@ echo
+	@ go fmt ./ ...
+%:
+	@:
