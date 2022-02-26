@@ -1,25 +1,23 @@
 version: "3"
 services:
-  db:
+  authenticate-db:
     image: postgres:9.6-stretch
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: 12345
       POSTGRES_DB: authenticate
     ports:
-      - 127.0.0.1:5432:5432
-    volumes:
-      - ./sql:/docker-entrypoint-initdb.d
+      - "5432:5432"
 
   web:
     build: .
     command: "go run ./cmd/api"
     volumes:
-      - ./sql:/docker-entrypoint-initdb.d
+      - .:/app
     ports:
       - "8080:8080"
     depends_on:
-      - db
+      - authenticate-db
     env_file:
       - .env
 
@@ -27,8 +25,8 @@ services:
     build: .
     command: "go run ./cmd/migrations"
     volumes:
-      - ./sql:/docker-entrypoint-initdb.d
+      - .:/app
     depends_on:
-      - db
+      - authenticate-db
     env_file:
       - .env
