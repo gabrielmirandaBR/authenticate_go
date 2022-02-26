@@ -23,9 +23,7 @@ func main() {
 		Port: env.Port,
 	})
 
-
 	tableBook := &driven.Book{}
-
 	err = db.AutoMigrate(tableBook)
 	if err != nil {
 		panic(err)
