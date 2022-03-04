@@ -30,7 +30,9 @@ func main() {
 
 	server := MustNewServer()
 	router := server.Listen()
-	// router.POST("/books", bookRest.)
+
+	router.POST("/books", bookRest.CreateBook)
+	router.DELETE("/books", bookRest.DeleteBook)
 
 	router.Run()
 }
