@@ -2,7 +2,7 @@ package main
 
 import "github.com/gin-gonic/gin"
 
-type Server struct {}
+type Server struct{}
 
 func MustNewServer() Server {
 	return Server{}

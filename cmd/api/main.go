@@ -17,13 +17,13 @@ func main() {
 	}
 
 	db := adapters.NewDatabase(&adapters.Config{
-		Host: env.Host,
+		Host:     env.Host,
 		Username: env.Username,
 		Password: env.Password,
-		DBName: env.DBName,
-		Port: env.Port,
+		DBName:   env.DBName,
+		Port:     env.Port,
 	})
-	
+
 	bookRepo := repository.MustNewBook(db)
 	bookService := services.MustNewBook(bookRepo)
 	bookRest := rest.MusNewBook(bookService)

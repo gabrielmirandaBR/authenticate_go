@@ -20,18 +20,18 @@ type Book struct {
 
 func MustNewBook(gormCli *gorm.DB) *Book {
 	return &Book{
-		cli: gormCli, 
+		cli: gormCli,
 	}
 }
 
-func (b Book) CreateBook(ctx context.Context, book domain.Book)  error {
+func (b Book) CreateBook(ctx context.Context, book domain.Book) error {
 	newBook := &driven.Book{
-		ID: book.ID,
-		Name: book.Name,
+		ID:          book.ID,
+		Name:        book.Name,
 		Description: book.Description,
 		MediumPrice: book.MediumPrice,
-		Author: book.Author,
-		ImageURL: book.ImageURL,
+		Author:      book.Author,
+		ImageURL:    book.ImageURL,
 	}
 
 	err := b.cli.Create(&newBook).Error
@@ -39,11 +39,11 @@ func (b Book) CreateBook(ctx context.Context, book domain.Book)  error {
 		log.Fatalf("%s", err)
 		return err
 	}
-	
-	return  nil
+
+	return nil
 }
 
-func (b Book) DeleteBook(ctx context.Context, book domain.Book)  error {
-	
-	return  nil
+func (b Book) DeleteBook(ctx context.Context, book domain.Book) error {
+
+	return nil
 }

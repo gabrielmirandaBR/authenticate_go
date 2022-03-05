@@ -28,12 +28,12 @@ func (b Book) CreateBook(ctx context.Context, book *domain.Book) (domain.Book, e
 	newID := uuid.New().String()
 
 	newBook := domain.Book{
-		ID: newID,
-		Name: book.Name,
+		ID:          newID,
+		Name:        book.Name,
 		Description: book.Description,
 		MediumPrice: book.MediumPrice,
-		Author: book.Author,
-		ImageURL: book.ImageURL,
+		Author:      book.Author,
+		ImageURL:    book.ImageURL,
 	}
 
 	err := b.bookRepo.CreateBook(ctx, newBook)
@@ -46,6 +46,6 @@ func (b Book) CreateBook(ctx context.Context, book *domain.Book) (domain.Book, e
 }
 
 func (b Book) DeleteBook(ctx context.Context, book domain.Book) (domain.Book, error) {
-	
+
 	return domain.Book{}, nil
 }
