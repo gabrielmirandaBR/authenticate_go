@@ -7,7 +7,6 @@ import (
 	"github.com/gabrielmirandaBR/authenticate_go/driven"
 )
 
-
 func main() {
 	env, err := adapters.GetEnvironments()
 	if err != nil {
@@ -16,16 +15,14 @@ func main() {
 	}
 
 	db := adapters.NewDatabase(&adapters.Config{
-		Host: env.Host,
+		Host:     env.Host,
 		Username: env.Username,
 		Password: env.Password,
-		DBName: env.DBName,
-		Port: env.Port,
+		DBName:   env.DBName,
+		Port:     env.Port,
 	})
 
-
 	tableBook := &driven.Book{}
-
 	err = db.AutoMigrate(tableBook)
 	if err != nil {
 		panic(err)

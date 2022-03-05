@@ -1,13 +1,9 @@
-package driven
+package domain
 
-import (
-	"time"
-
-	"gorm.io/gorm"
-)
+import "time"
 
 type Book struct {
-	ID          string `gorm:"primaryKey"`
+	ID          string
 	Name        string
 	Description string
 	MediumPrice float32
@@ -15,5 +11,5 @@ type Book struct {
 	ImageURL    string
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
-	DeletedAt   gorm.DeletedAt `gorm:"index"`
+	DeletedAt   time.Time
 }
