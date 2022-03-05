@@ -1,0 +1,103 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-03-05T23:06:36.859Z",
+  "__export_source": "insomnia.desktop.app:v2022.1.0",
+  "resources": [
+    {
+      "_id": "req_edbe6c669bab411fa36b80ab4ecf6d4c",
+      "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "modified": 1646521584820,
+      "created": 1646515813393,
+      "url": "{{ _.baseURL }}/books",
+      "name": "CreateBook",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"O senhor dos aneis\",\n\t\"description\": \"aventura\",\n\t\"medium_price\": 5.51,\n\t\"author\": \"R.R. Tolkien\",\n\t\"img_url\": \"hhtps://google.com.br\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_570e83919a97483b92fc39ccaa4cbcf2"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1646515813393,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "parentId": null,
+      "modified": 1646515813373,
+      "created": 1646515813373,
+      "name": "New Document",
+      "description": "",
+      "scope": "design",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_18492385c4e5bf6b918b38dfa68d37e2c5c99c65",
+      "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "modified": 1646515963649,
+      "created": 1646515813386,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": {},
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1646515813386,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_18492385c4e5bf6b918b38dfa68d37e2c5c99c65",
+      "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "modified": 1646515813390,
+      "created": 1646515813390,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_9ca0823ff7334687a90f35656e166557",
+      "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "modified": 1646515830602,
+      "created": 1646515813383,
+      "fileName": "authenticate_go",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "uts_3fdf78d389114366a8a81219212ca9c3",
+      "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "modified": 1646515813394,
+      "created": 1646515813394,
+      "name": "Example Test Suite",
+      "_type": "unit_test_suite"
+    },
+    {
+      "_id": "env_e1fd64b24c83415ca75274a099a81dc2",
+      "parentId": "env_18492385c4e5bf6b918b38dfa68d37e2c5c99c65",
+      "modified": 1646516245809,
+      "created": 1646515967668,
+      "name": "Configs",
+      "data": { "baseURL": "http://localhost:8080" },
+      "dataPropertyOrder": { "&": ["baseURL"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1646515967668,
+      "_type": "environment"
+    }
+  ]
+}
