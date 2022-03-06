@@ -11,7 +11,7 @@ import (
 
 type BookServices interface {
 	CreateBook(ctx context.Context, book *domain.Book) (domain.Book, error)
-	DeleteBook(ctx context.Context, book domain.Book) (domain.Book, error)
+	DeleteBook(ctx context.Context, book *domain.Book) error
 }
 
 type Book struct {
@@ -36,8 +36,7 @@ func (b Book) CreateBook(ctx context.Context, book *domain.Book) (domain.Book, e
 		ImageURL:    book.ImageURL,
 	}
 
-	err := b.bookRepo.CreateBook(ctx, newBook)
-	if err != nil {
+	if err := b.bookRepo.CreateBook(ctx, newBook); err != nil {
 		log.Fatalf("%s", err)
 		return domain.Book{}, err
 	}
@@ -45,7 +44,15 @@ func (b Book) CreateBook(ctx context.Context, book *domain.Book) (domain.Book, e
 	return newBook, nil
 }
 
-func (b Book) DeleteBook(ctx context.Context, book domain.Book) (domain.Book, error) {
+func (b Book) DeleteBook(ctx context.Context, book *domain.Book) error {
+	bookDeleted := domain.Book{
+		ID: book.ID,
+	}
 
-	return domain.Book{}, nil
+	if err := b.bookRepo.DeleteBook(ctx, bookDeleted); err != nil {
+		log.Fatalf("%s", err)
+		return  err
+	}
+
+	return nil
 }

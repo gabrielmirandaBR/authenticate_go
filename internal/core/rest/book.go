@@ -65,5 +65,20 @@ func (b Book) CreateBook(ctx *gin.Context) {
 }
 
 func (b Book) DeleteBook(ctx *gin.Context) {
+	bookID := ctx.Param("id")
+	book := &domain.Book{
+		ID: bookID,
+	}
 
+	err := b.bookService.DeleteBook(ctx, book)
+	if err != nil {
+		log.Fatalf("%s", err)
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+
+		return
+	}
+
+	ctx.JSON(http.StatusNoContent, gin.H{})
 }

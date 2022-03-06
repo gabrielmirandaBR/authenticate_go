@@ -32,7 +32,7 @@ func main() {
 	router := server.Listen()
 
 	router.POST("/books", bookRest.CreateBook)
-	router.DELETE("/books", bookRest.DeleteBook)
+	router.DELETE("/books/:id", bookRest.DeleteBook)
 
 	router.Run()
 }

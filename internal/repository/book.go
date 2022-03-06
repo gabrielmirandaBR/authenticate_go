@@ -44,6 +44,15 @@ func (b Book) CreateBook(ctx context.Context, book domain.Book) error {
 }
 
 func (b Book) DeleteBook(ctx context.Context, book domain.Book) error {
+	bookDeleted := &driven.Book {
+		ID: book.ID,
+	}
 
+	err := b.cli.Where("id = ?", bookDeleted.ID).Delete(&bookDeleted).Error
+	if err != nil {
+		log.Fatalf("%s", err)
+		return err
+	}
+	
 	return nil
 }
