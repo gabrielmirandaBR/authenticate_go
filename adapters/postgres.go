@@ -20,8 +20,8 @@ func NewDatabase(input *Config) *gorm.DB {
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		fmt.Printf("Error creating database: %s", err)
-		log.Fatal("error: ", err)
+		log.Printf("%s", err)
+		panic("Error creating database")
 	}
 
 	return db
