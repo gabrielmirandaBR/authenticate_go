@@ -13,7 +13,7 @@ import (
 type BookRepository interface {
 	CreateBook(ctx context.Context, book domain.Book) error
 	DeleteBook(ctx context.Context, book domain.Book) error
-	FindBook(ctx context.Context, bookID string)  error
+	FindBook(ctx context.Context, bookID string) error
 }
 
 type Book struct {
@@ -44,7 +44,7 @@ func (b Book) CreateBook(ctx context.Context, book domain.Book) error {
 	return nil
 }
 
-func (b Book) FindBook(ctx context.Context, bookID string)  error {
+func (b Book) FindBook(ctx context.Context, bookID string) error {
 	book := &driven.Book{
 		ID: bookID,
 	}
@@ -54,11 +54,11 @@ func (b Book) FindBook(ctx context.Context, bookID string)  error {
 		return fmt.Errorf("this book could not be found or has already been deleted")
 	}
 
-	return  nil
+	return nil
 }
 
 func (b Book) DeleteBook(ctx context.Context, book domain.Book) error {
-	bookDeleted := &driven.Book {
+	bookDeleted := &driven.Book{
 		ID: book.ID,
 	}
 

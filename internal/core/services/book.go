@@ -44,8 +44,8 @@ func (b Book) CreateBook(ctx context.Context, book *domain.Book) (domain.Book, e
 	return newBook, nil
 }
 
-func (b Book) findBook(ctx context.Context, bookID string)  error {
-	 err := b.bookRepo.FindBook(ctx, bookID)
+func (b Book) findBook(ctx context.Context, bookID string) error {
+	err := b.bookRepo.FindBook(ctx, bookID)
 	if err != nil {
 		return err
 	}
@@ -65,7 +65,7 @@ func (b Book) DeleteBook(ctx context.Context, book *domain.Book) error {
 
 	if err := b.bookRepo.DeleteBook(ctx, bookDeleted); err != nil {
 		log.Printf("%s", err)
-		return  err
+		return err
 	}
 
 	return nil
