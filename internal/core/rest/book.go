@@ -1,7 +1,6 @@
 package rest
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gabrielmirandaBR/authenticate_go/driver"
@@ -49,7 +48,6 @@ func (b Book) CreateBook(ctx *gin.Context) {
 
 	newBook, err := b.bookService.CreateBook(ctx, book)
 	if err != nil {
-		log.Fatalf("%s", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
@@ -72,8 +70,7 @@ func (b Book) DeleteBook(ctx *gin.Context) {
 
 	err := b.bookService.DeleteBook(ctx, book)
 	if err != nil {
-		log.Fatalf("%s", err)
-		ctx.JSON(http.StatusInternalServerError, gin.H{
+		ctx.JSON(http.StatusNotFound, gin.H{
 			"error": err.Error(),
 		})
 
