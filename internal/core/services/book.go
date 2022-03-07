@@ -12,6 +12,7 @@ import (
 type BookServices interface {
 	CreateBook(ctx context.Context, book *domain.Book) (domain.Book, error)
 	DeleteBook(ctx context.Context, book *domain.Book) error
+	FindAllBooks(ctx context.Context) ([]domain.Book, error)
 }
 
 type Book struct {
@@ -69,4 +70,14 @@ func (b Book) DeleteBook(ctx context.Context, book *domain.Book) error {
 	}
 
 	return nil
+}
+
+func (b Book) FindAllBooks(ctx context.Context) ([]domain.Book, error) {
+	books, err := b.bookRepo.FindAllBooks(ctx)
+	if err != nil {
+		log.Printf("%s", err)
+		return nil, err
+	}
+
+	return books, nil
 }

@@ -70,7 +70,7 @@ func (b Book) DeleteBook(ctx *gin.Context) {
 
 	err := b.bookService.DeleteBook(ctx, book)
 	if err != nil {
-		ctx.JSON(http.StatusNotFound, gin.H{
+		ctx.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
 
@@ -78,4 +78,19 @@ func (b Book) DeleteBook(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusNoContent, gin.H{})
+}
+
+func (b Book) FindAllBooks(ctx *gin.Context) {
+	books, err := b.bookService.FindAllBooks(ctx)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"books": books,
+	})
 }

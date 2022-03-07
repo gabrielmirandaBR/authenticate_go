@@ -14,6 +14,7 @@ type BookRepository interface {
 	CreateBook(ctx context.Context, book domain.Book) error
 	DeleteBook(ctx context.Context, book domain.Book) error
 	FindBook(ctx context.Context, bookID string) error
+	FindAllBooks(ctx context.Context) ([]domain.Book, error)
 }
 
 type Book struct {
@@ -68,4 +69,15 @@ func (b Book) DeleteBook(ctx context.Context, book domain.Book) error {
 	}
 
 	return nil
+}
+
+func (b Book) FindAllBooks(ctx context.Context) ([]domain.Book, error) {
+	books := []domain.Book{}
+
+	err := b.cli.Find(&books).Error
+	if err != nil {
+		return nil, fmt.Errorf("could not bring the books")
+	}
+	
+	return books, nil
 }
