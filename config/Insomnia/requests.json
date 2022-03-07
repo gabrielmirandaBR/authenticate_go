@@ -1,13 +1,46 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2022-03-05T23:06:36.859Z",
+  "__export_date": "2022-03-07T00:20:00.587Z",
   "__export_source": "insomnia.desktop.app:v2022.1.0",
   "resources": [
     {
+      "_id": "req_510be0f5442144c8aa74e1ef2b7dbb8b",
+      "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "modified": 1646597270156,
+      "created": 1646566136069,
+      "url": "{{ _.baseURL }}/books/4f60472b-dddc-4925-a312-99c036df0e3f",
+      "name": "DeleteBook",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1646566136069,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "parentId": null,
+      "modified": 1646515813373,
+      "created": 1646515813373,
+      "name": "New Document",
+      "description": "",
+      "scope": "design",
+      "_type": "workspace"
+    },
+    {
       "_id": "req_edbe6c669bab411fa36b80ab4ecf6d4c",
       "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
-      "modified": 1646521584820,
+      "modified": 1646612370137,
       "created": 1646515813393,
       "url": "{{ _.baseURL }}/books",
       "name": "CreateBook",
@@ -35,16 +68,6 @@
       "settingRebuildPath": true,
       "settingFollowRedirects": "global",
       "_type": "request"
-    },
-    {
-      "_id": "wrk_1b07c4a180ea430faba597a4096b8dd4",
-      "parentId": null,
-      "modified": 1646515813373,
-      "created": 1646515813373,
-      "name": "New Document",
-      "description": "",
-      "scope": "design",
-      "_type": "workspace"
     },
     {
       "_id": "env_18492385c4e5bf6b918b38dfa68d37e2c5c99c65",
