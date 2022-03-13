@@ -1,7 +1,6 @@
 package rest
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gabrielmirandaBR/authenticate_go/driver"
@@ -49,7 +48,6 @@ func (b Book) CreateBook(ctx *gin.Context) {
 
 	newBook, err := b.bookService.CreateBook(ctx, book)
 	if err != nil {
-		log.Fatalf("%s", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
@@ -65,5 +63,60 @@ func (b Book) CreateBook(ctx *gin.Context) {
 }
 
 func (b Book) DeleteBook(ctx *gin.Context) {
+	bookID := ctx.Param("id")
+	book := &domain.Book{
+		ID: bookID,
+	}
 
+	err := b.bookService.DeleteBook(ctx, book)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+
+		return
+	}
+
+	ctx.JSON(http.StatusNoContent, gin.H{})
+}
+
+func (b Book) FindAllBooks(ctx *gin.Context) {
+	books, err := b.bookService.FindAllBooks(ctx)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"books": books,
+	})
+}
+
+func (b Book) UpdateBook(ctx *gin.Context) {
+	bookID := ctx.Param("id")
+	book := &domain.Book{}
+
+	if err := ctx.ShouldBindJSON(book); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+
+		return
+	}
+
+	err := b.bookService.UpdateBook(ctx, bookID, book)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"message": "updated book",
+	})
 }
