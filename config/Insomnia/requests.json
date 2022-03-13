@@ -1,9 +1,51 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2022-03-07T01:09:08.847Z",
-  "__export_source": "insomnia.desktop.app:v2022.1.0",
+  "__export_date": "2022-03-13T22:16:25.545Z",
+  "__export_source": "insomnia.desktop.app:v2022.1.1",
   "resources": [
+    {
+      "_id": "req_1201331c0ec245deaefb2312b667991d",
+      "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "modified": 1647208607461,
+      "created": 1647089078232,
+      "url": "{{ _.baseURL }}/books/076d8197-a0e7-4c64-a5eb-0a0416fb10c4",
+      "name": "UpdateBook",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"dasdsadasdasdasdasdasda!!!!!!!!!!!aa\",\n\t\"description\": \"aventura\",\n\t\"author\": \"R.R. Tolkien\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2650d51e5c1c4b179ed812a1e4202bd9"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1647089078233,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_1b07c4a180ea430faba597a4096b8dd4",
+      "parentId": null,
+      "modified": 1646515813373,
+      "created": 1646515813373,
+      "name": "New Document",
+      "description": "",
+      "scope": "design",
+      "_type": "workspace"
+    },
     {
       "_id": "req_c25ad017650149af8bba3cfc6f342f8f",
       "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
@@ -28,21 +70,11 @@
       "_type": "request"
     },
     {
-      "_id": "wrk_1b07c4a180ea430faba597a4096b8dd4",
-      "parentId": null,
-      "modified": 1646515813373,
-      "created": 1646515813373,
-      "name": "New Document",
-      "description": "",
-      "scope": "design",
-      "_type": "workspace"
-    },
-    {
       "_id": "req_510be0f5442144c8aa74e1ef2b7dbb8b",
       "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
-      "modified": 1646597270156,
+      "modified": 1647208618484,
       "created": 1646566136069,
-      "url": "{{ _.baseURL }}/books/4f60472b-dddc-4925-a312-99c036df0e3f",
+      "url": "{{ _.baseURL }}/books/076d8197-a0e7-4c64-a5eb-0a0416fb10c4",
       "name": "DeleteBook",
       "description": "",
       "method": "DELETE",
@@ -63,7 +95,7 @@
     {
       "_id": "req_edbe6c669bab411fa36b80ab4ecf6d4c",
       "parentId": "wrk_1b07c4a180ea430faba597a4096b8dd4",
-      "modified": 1646614535105,
+      "modified": 1647208600002,
       "created": 1646515813393,
       "url": "{{ _.baseURL }}/books",
       "name": "CreateBook",
@@ -71,7 +103,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"O senhor dos aneis\",\n\t\"description\": \"aventura\",\n\t\"medium_price\": 5.51,\n\t\"author\": \"R.R. Tolkien\",\n\t\"img_url\": \"hhtps://google.com.br\"\n}"
+        "text": "{\n\t\"name\": \"um morto muito louco\",\n\t\"description\": \"aventura\",\n\t\"medium_price\": 5.51,\n\t\"author\": \"R.R. Tolkien\",\n\t\"img_url\": \"hhtps://google.com.br\"\n}"
       },
       "parameters": [],
       "headers": [
