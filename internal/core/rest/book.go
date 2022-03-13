@@ -94,3 +94,29 @@ func (b Book) FindAllBooks(ctx *gin.Context) {
 		"books": books,
 	})
 }
+
+func (b Book) UpdateBook(ctx *gin.Context) {
+	bookID := ctx.Param("id")
+	book := &domain.Book{}
+
+	if err := ctx.ShouldBindJSON(book); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+
+		return
+	}
+
+	err := b.bookService.UpdateBook(ctx, bookID, book)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
+
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"message": "updated book",
+	})
+}

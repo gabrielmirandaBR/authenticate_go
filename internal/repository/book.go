@@ -15,6 +15,7 @@ type BookRepository interface {
 	DeleteBook(ctx context.Context, book domain.Book) error
 	FindBook(ctx context.Context, bookID string) error
 	FindAllBooks(ctx context.Context) ([]domain.Book, error)
+	UpdateBook(ctx context.Context, bookID string, book domain.Book) error
 }
 
 type Book struct {
@@ -78,6 +79,23 @@ func (b Book) FindAllBooks(ctx context.Context) ([]domain.Book, error) {
 	if err != nil {
 		return nil, fmt.Errorf("could not bring the books")
 	}
-	
+
 	return books, nil
+}
+
+func (b Book) UpdateBook(ctx context.Context, bookID string, book domain.Book) error {
+	updateBook := &driven.Book{
+		Name:        book.Name,
+		Description: book.Description,
+		MediumPrice: book.MediumPrice,
+		Author:      book.Author,
+		ImageURL:    book.ImageURL,
+	}
+
+	err := b.cli.Where("ID = ?", bookID).Updates(updateBook).Error
+	if err != nil {
+		return fmt.Errorf("could not update this book")
+	}
+
+	return nil
 }
