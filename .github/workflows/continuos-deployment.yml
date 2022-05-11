@@ -1,14 +1,13 @@
 name: CD (Production)
 on:
   workflow_run:
-    workflows: ["Test Code"]
-    types:
-      - completed
-    branches: ["testing-ci-cd2"]
+    workflows: [Test Code]
+    types: [completed]
+    branches: [testing-ci-cd2]
 jobs:
   test:
     runs-on: ubuntu-20.04
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
