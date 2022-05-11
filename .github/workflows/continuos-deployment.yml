@@ -1,0 +1,15 @@
+name: CD (Production)
+on:
+  workflow_run:
+    workflows: [CI (Production)]
+    types:
+      - completed
+
+jobs:
+  copy_dags:
+    name: 'Test CD'
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
