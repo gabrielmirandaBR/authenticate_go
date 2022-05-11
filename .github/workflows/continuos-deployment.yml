@@ -4,7 +4,7 @@ on:
     workflows: [Test Code]
     types:
       - completed
-    branches: [testing-ci-cd2]
+    branches: [test]
 jobs:
   test:
     runs-on: ubuntu-20.04
