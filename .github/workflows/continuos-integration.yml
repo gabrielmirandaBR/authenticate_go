@@ -1,7 +1,5 @@
-name: CI (Production)
-on:
-  push:
-  workflow_dispatch:
+name: Test Code
+on: [push]
 jobs:
   test:
     runs-on: ubuntu-20.04
