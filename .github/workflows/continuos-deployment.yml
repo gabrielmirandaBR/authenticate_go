@@ -1,5 +1,8 @@
 name: CD (Production)
 on:
+  push:
+    branches:
+      - main
   workflow_run:
     workflows: [Test Code]
     types: [completed]
